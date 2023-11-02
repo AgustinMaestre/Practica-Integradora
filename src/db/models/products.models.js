@@ -28,6 +28,10 @@ const productsSchema = new mongoose.Schema({
     },
     thumbnail: {
         type: String
+    },
+    status: {
+        type: Boolean,
+        default: true
     }
 });
 

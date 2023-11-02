@@ -2,12 +2,20 @@ import { Router } from 'express'
 
 const router = Router()
 
-router.get('/', async (req, res) => {
-    try {
-        res.render('chat')
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-})
+router.get("/", (req, res) => {
+    res.render("websocket");
+});
+
+router.get("/home", (req, res) => {
+    res.render("home");
+});
+
+router.get("/realtimeproducts", (req, res) => {
+    res.render("realTimeProducts");
+});
+
+router.get("/chat", (req, res) => {
+    res.render("chat");
+});
 
 export default router

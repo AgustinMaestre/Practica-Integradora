@@ -2,39 +2,29 @@ import { productsModel } from "../db/models/products.models.js";
 
 class productsManager {
     async findAll() {
-        try {
-            const result = await productsModel.find()
-            return result
-        } catch (error) {
-            return error
-        }
+        const result = await productsModel.find().lean();
+        return result;
     }
-    async findById() {
-        try {
 
-        } catch (error) {
-            return error
-        }
+    async findById(id) {
+        const result = await productsModel.findById(id);
+        return result;
     }
-    async createOne() {
-        try {
 
-        } catch (error) {
-            return error
-        }
+    async createOne(obj) {
+        const result = await productsModel.create(obj);
+        return result;
     }
-    async updateOne() {
-        try {
 
-        } catch (error) {
-            return error
-        }
+    async updateOne(id, obj) {
+        const result = await productsModel.updateOne({ _id: id }, obj);
+        return result;
     }
-    async deleteOne() {
-        try {
 
-        } catch (error) {
-            return error
-        }
+    async deleteOne(id) {
+        const result = await productsModel.deleteOne({ _id: id });
+        return result;
     }
 }
+
+export const productsManager = new productsManager();
